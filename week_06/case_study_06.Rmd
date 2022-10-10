@@ -1,7 +1,23 @@
 ---
 title: "Case Study 06"
-author: Your Name
-date: August 1, 2020
+author: Ehsan Ul Hoque Tanim
+date: October 11, 2022
 output: github_document
 ---
- 
+##Load Library
+```{r message = FALSE}
+library(raster)
+library(sp)
+library(spData)
+library(tidyverse)
+library(sf)
+```
+##Load 'world' data from spData package
+
+```{r}
+
+data_without_antarctica <- world %>%
+  filter(continent != "Antarctica")
+
+world_sp <- as(world, "Spatial")
+```
