@@ -44,3 +44,26 @@ ggplot(tmax_country,aes(fill=tmax))+
 ```
 
 ![](case_study_06_files/figure-gfm/unnamed-chunk-2-2.png)<!-- -->
+
+``` r
+hottest_country=tmax_country %>% 
+group_by(continent) %>% 
+  top_n(tmax,n=1) %>% 
+select(name_long,continent,tmax) %>% 
+  arrange(desc(tmax)) %>% 
+  st_set_geometry(NULL)
+
+hottest_country
+```
+
+    ## # A tibble: 7 × 3
+    ## # Groups:   continent [7]
+    ##   name_long                           continent                tmax
+    ## * <chr>                               <chr>                   <dbl>
+    ## 1 Australia                           Oceania                  32  
+    ## 2 Somalia                             Africa                   27.7
+    ## 3 Paraguay                            South America            27.7
+    ## 4 Timor-Leste                         Asia                     27.6
+    ## 5 Costa Rica                          North America            26.1
+    ## 6 Albania                             Europe                   12.5
+    ## 7 French Southern and Antarctic Lands Seven seas (open ocean)   7.1

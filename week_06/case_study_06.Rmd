@@ -36,4 +36,14 @@ ggplot(tmax_country,aes(fill=tmax))+
   geom_sf()+
   scale_fill_viridis_c(name="Annual\nMaximum\nTemperature (C)")+
   theme(legend.position = 'bottom')
+
+hottest_country=tmax_country %>% 
+group_by(continent) %>% 
+  top_n(tmax,n=1) %>% 
+select(name_long,continent,tmax) %>% 
+  arrange(desc(tmax)) %>% 
+  st_set_geometry(NULL)
+
+hottest_country
+
 ```
