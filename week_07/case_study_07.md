@@ -7,17 +7,13 @@ October 20, 2022
 library(reprex)
 library(sf)
 library(tidyverse)
-library(ggplot2)
 library(spData)
 data("world")
 ```
 
 ``` r
-ggplot(world,aes(x=gdpPercap, color=continent, fill=continent))+
-   geom_density(alpha=0.5,color=F)+
-  labs(x= "GDP Per Capita",
-       y= "Density")+
-  theme(legend.position = "bottom")
+ggplot(world,aes(x=gdpPercap, y=continent, color=continent))+
+   geom_density(alpha=0.5,color=F)
 ```
 
     ## Warning: Removed 17 rows containing non-finite values (stat_density).
