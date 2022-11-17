@@ -1,7 +1,44 @@
 ---
 title: "Case Study 08"
-author: Your Name
-date: August 1, 2020
-output: github_document
+author: Ehsan Ul Hoque Tanim
+date: Ocober 25,2022
+output:
+  html_document: default
+  github_document: default
+  powerpoint_presentation: default
+  word_document: default
 ---
- 
+```{r, message=FALSE, results= 'hide', echo= F}
+
+library(tidyverse)
+library(ggplot2)
+library(kableExtra)
+
+
+link <- "ftp://aftp.cmdl.noaa.gov/products/trends/co2/co2_annmean_mlo.txt"
+
+data_8 <- read_table(link, skip = 57,col_names= c("year", "mean", "uncertainty"))
+
+ggplot(data_8)+
+  aes(year, mean)+
+  geom_line()+
+  labs(x="Year",
+       y= "Mean CO2",
+       title = "Mean Annual CO2 in Mauna Loa")+
+  theme_minimal()
+
+top_5 <- data_8 %>% arrange(desc(mean)) %>%
+  slice(1:5)
+
+  
+top_5
+
+knitr::kable(top_5)
+
+top_5 %>% 
+  kable() %>% 
+  as_image( width = 10, file = "table.png")
+```
+
+
+

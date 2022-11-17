@@ -1,10 +1,11 @@
 ---
-title: "Case Study 05"
+title: "Case Study 11"
 author: Ehsan Ul Hoque Tanim
-date: October 04, 2022
-output: github_document
+date: November 15, 2022
+output: html_document
 ---
-```{r message = False}
+
+```{r message=FALSE}
 library(tidyverse)
 library(spData)
 library(sf)
@@ -47,4 +48,5 @@ mapview(buffalo_race,
         cex = 1, 
         alpha = 0)  
 ```  
+  
   
