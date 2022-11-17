@@ -2,7 +2,7 @@
 title: "Case Study 11"
 author: Ehsan Ul Hoque Tanim
 date: November 15, 2022
-output: html_document
+output: github_document
 ---
 
 ```{r message=FALSE}
