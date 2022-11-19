@@ -1,11 +1,9 @@
----
-title: "Case Study 05"
-author: Ehsan Ul Hoque Tanim
-date: October 04, 2022
-output: github_document
----
-```{r message = FALSE}
+Case Study 05
+================
+Ehsan Ul Hoque Tanim
+October 04, 2022
 
+``` r
 library(spData)
 library(sf)
 library(tidyverse)
@@ -25,10 +23,16 @@ NY <- us_states %>%
   filter(NAME == "New York") 
 
 Border = st_intersection(canada_border, NY)
+```
 
+    ## Warning: attribute variables are assumed to be spatially constant throughout all
+    ## geometries
+
+``` r
 ggplot()+
   geom_sf(data = NY)+
   geom_sf(data = Border, fill = "red")+
   labs(title = "New York Land Within 10 Km")
 ```
 
+![](case_study_05_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->

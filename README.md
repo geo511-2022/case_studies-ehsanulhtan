@@ -1,4 +1,5 @@
 # Repository to hold class activities for GEO511
+Course work for Spatial Data Science
 
 ## Overview
 This template repository is set up to hold the semester's case study assignments for GEO511. 

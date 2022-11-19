@@ -1,0 +1,70 @@
+Level of PFAS contamination in the US
+================
+Ehsan Ul Hoque Tanim
+
+## Introduction
+
+PFAS- per and poly-fluoroalkyl substances are one of the most concerned
+contaminants. According to EPA, PFAS are widely used long lasting
+chemicals with a slower decay rate. Mostly water repellent materials
+like Teflon contains thousands of PFAS. \## Problem Statement PFAS acts
+like a slow poison. Due to the persistence of these chemicals, long term
+existence in human cells is possible. Still people are not aware of
+this.
+
+## Motivation
+
+Limited graphical resources on PFAS contamination data motivated me to
+work on this project. I have enlisted few example to understand about my
+project outcome.
+
+## Example 1
+
+[PFAS Contamination in the
+U.S.](https://www.ewg.org/interactive-maps/pfas_contamination/map/)
+
+This interactive graph shows different PFAS compounds and their
+contamination level based on three sources including military sites.
+
+## Example 2
+
+[PFAS Concentration Map
+Series](https://cdphe.maps.arcgis.com/apps/MapSeries/index.html?appid=0fd782d4fe2f49ed967b682e10573834)
+
+This map includes PFOS and PFOA concentrations combined.
+
+## Example 3
+
+[PFAS Chemicals found in Florida](https://www.fight4zero.org/pfasmap)
+
+## Data Source
+
+[Datasource](https://echo.epa.gov/system/files/Drinking_Water_Testing_Data_State_01-03-2022_0.xlsx)
+
+A number of states and individual public water systems have been testing
+source water and finished water for PFAS, but these records are not
+maintained by EPA in a national repository. EPA has provided states that
+are regulating and/or testing PFAS with a mechanism to store/report PFAS
+data that is associated with state-specific PFAS regulations.
+
+## Methodology
+
+Here are few packages enlisted which I am planning to use to plot the
+map. Such as I will use dplyr for joining data sets, leaflet for the
+base map.
+
+library(leaflet)
+
+library(tidyverse)
+
+library(dplyr)
+
+library(sf)
+
+library(ggplot2)
+
+## Expected results
+
+To represent a graphical variation of contamination and their effects in
+different states of the US.
+![](https://i0.wp.com/pfasproject.com/wp-content/uploads/2020/04/Joint_EWG_SSEHRI_map1-1.png?resize=816%2C9999&ssl=1)

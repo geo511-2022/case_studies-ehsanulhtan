@@ -1,7 +1,49 @@
 ---
 title: "Case Study 06"
-author: Your Name
-date: August 1, 2020
+author: Ehsan Ul Hoque Tanim
+date: October 11, 2022
 output: github_document
 ---
- 
+## Load Library
+```{r message = FALSE}
+library(raster)
+library(sp)
+library(spData)
+library(tidyverse)
+library(sf)
+library(ncdf4)
+```
+## Load 'world' data from spData package
+
+```{r}
+
+download.file("https://crudata.uea.ac.uk/cru/data/temperature/absolute.nc","crudata.nc",method = "curl")
+tmean = raster("crudata.nc")
+
+nc = nc_open("crudata.nc")
+
+world_sp <- world %>% 
+  filter(name_long != "Antarctica") %>%
+  as("Spatial")
+
+plot(tmean)
+names(tmean) <- "tmax"
+
+tmax_country <- tmean %>%
+  raster::extract(y=world_sp, fun=max, na.rm=T, small=T, sp=T)%>% st_as_sf()
+
+ggplot(tmax_country,aes(fill=tmax))+
+  geom_sf()+
+  scale_fill_viridis_c(name="Annual\nMaximum\nTemperature (C)")+
+  theme(legend.position = 'bottom')
+
+hottest_country=tmax_country %>% 
+group_by(continent) %>% 
+  top_n(tmax,n=1) %>% 
+select(name_long,continent,tmax) %>% 
+  arrange(desc(tmax)) %>% 
+  st_set_geometry(NULL)
+
+hottest_country
+
+```
